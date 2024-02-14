@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
 
-import fa from './Favorites.module.scss';
+// import fa from './Favorites.module.scss';
 
 const Favorites = () => {
   

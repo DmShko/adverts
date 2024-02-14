@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
 
-import ho from './Home.module.scss';
+// import ho from './Home.module.scss';
 
 const Home = () => {
   

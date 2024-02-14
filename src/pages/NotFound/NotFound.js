@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
-
-import nf from './NotFound.module.scss';
+// import nf from './NotFound.module.scss';
 
 const NotFound = () => {
   

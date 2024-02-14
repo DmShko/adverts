@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
 
-import ca from './Catalog.module.scss';
+// import ca from './Catalog.module.scss';
 
 const Catalog = () => {
   
