@@ -1,6 +1,4 @@
 
-// import fa from './Favorites.module.scss';
-
 const Favorites = () => {
   
   return (

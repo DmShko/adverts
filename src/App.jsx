@@ -11,8 +11,8 @@ import NotFound from './pages/NotFound/NotFound';
 import { nanoid } from 'nanoid';
 
 // path consts
-  const CATALOG = '/catalog';
-  const FAVORITE = '/favorites';
+  const CATALOG = 'catalog';
+  const FAVORITE = 'favorites';
   const NOTFOUND = '/*';
 
 export const App = () => {
@@ -20,7 +20,7 @@ export const App = () => {
   const appRoutes = [
     {path: CATALOG, element: <Catalog />,},
     {path: FAVORITE, element: <Favorites />,},
-    {path: NOTFOUND, element: <NotFound />,}
+    {path: NOTFOUND, element: <NotFound />,},
   ];
 
   return (
@@ -28,7 +28,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index
-            element={<Home/>}
+            element={<Home />}
           />
 
           {appRoutes.map(({ path, element }) => 

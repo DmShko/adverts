@@ -1,10 +1,8 @@
 
-// import ho from './Home.module.scss';
-
 const Home = () => {
   
   return (
-    <div>NotFound</div>
+    <div>Home</div>
   )
 }
 

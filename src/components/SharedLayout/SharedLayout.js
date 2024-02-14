@@ -1,5 +1,7 @@
-import { NavLink, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+
+import Header from '../Header/Header'
 
 import sh from './SharedLayout.module.scss';
 
@@ -7,24 +9,14 @@ const SharedLayout = () => {
 
   return (
     <>
-      <section className={sh.section}>
-        <header className={sh.header}>
-          <nav className={sh.nav}>
-            <NavLink className={sh.link} to="/">
-              Home
-            </NavLink>
-          </nav>    
-        </header>
-        
-      </section>
-
-      <section className={sh.section}>
+      <Header />
         <main>
-          <Suspense>
-            <Outlet />
-          </Suspense>
+          <div className={sh.container}>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Outlet />
+            </Suspense>
+          </div>
         </main>
-      </section>
     </>
   );
 };

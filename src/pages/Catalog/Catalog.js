@@ -1,10 +1,15 @@
-
-// import ca from './Catalog.module.scss';
+import Search from '../../components/Search/Search'
+import Resault from '../../components/Resault/Resault'
 
 const Catalog = () => {
   
   return (
-    <div>Catalog</div>
+
+    <>
+      <Search />
+      <Resault />
+    </>
+      
   )
 }
 

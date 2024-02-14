@@ -1,0 +1,45 @@
+@mixin fl {
+    display: flex;
+    align-items: center
+}
+
+.header {
+
+    position: fixed;
+   
+    width: 100vw;
+    height: 50px;
+
+    .container {
+
+        @include fl;
+    
+        flex-direction: row;
+        justify-content: space-between;
+    
+        width: 80%;
+        padding: 10px 30px;
+        margin: 0 auto;
+    
+        border: 1px solid blue;
+        border-radius: 6px;
+        nav {
+
+            height: fit-content;
+            @include fl;
+            flex-direction: row;
+            justify-content: space-between;
+
+            width: 30%;
+
+            .link {
+                
+                text-decoration: none;
+                text-align: center;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
