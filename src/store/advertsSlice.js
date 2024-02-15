@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { adverts } from '../API/advertsAPI';
+import { getAdverts } from '../API/advertsAPI';
 
 const advertsInitialState = {
  
   isLoading: false,
+  cars: [],
 
 };
 
@@ -15,17 +16,18 @@ const advertsSlice = createSlice({
     
   },
   extraReducers: builder => {
-    builder.addCase(adverts.pending, state => {
+    builder.addCase(getAdverts.pending, state => {
       state.isLoading = true;
       state.errorGet = null;
     });
 
-    builder.addCase(adverts.fulfilled, (state, action) => {
+    builder.addCase(getAdverts.fulfilled, (state, action) => {
       state.isLoading = false;
-
+   
+      state.cars = action.payload;
       // some actions with 'action'...
     });
-    builder.addCase(adverts.rejected, (state, action) => {
+    builder.addCase(getAdverts.rejected, (state, action) => {
       state.isLoading = false;
     
     });
