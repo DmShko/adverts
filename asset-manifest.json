@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/adverts/static/css/main.b8593025.css",
-    "main.js": "/adverts/static/js/main.dc933474.js",
+    "main.css": "/adverts/static/css/main.1a7afb73.css",
+    "main.js": "/adverts/static/js/main.206e55df.js",
+    "static/media/car-transport-svgrepo-com.svg": "/adverts/static/media/car-transport-svgrepo-com.8149fff25415014234cecc6223d0993f.svg",
     "index.html": "/adverts/index.html",
-    "main.b8593025.css.map": "/adverts/static/css/main.b8593025.css.map",
-    "main.dc933474.js.map": "/adverts/static/js/main.dc933474.js.map"
+    "main.1a7afb73.css.map": "/adverts/static/css/main.1a7afb73.css.map",
+    "main.206e55df.js.map": "/adverts/static/js/main.206e55df.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8593025.css",
-    "static/js/main.dc933474.js"
+    "static/css/main.1a7afb73.css",
+    "static/js/main.206e55df.js"
   ]
 }
