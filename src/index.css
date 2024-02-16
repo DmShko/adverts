@@ -5,6 +5,8 @@
   --text-white: rgba(255, 255, 255, 1);
   --border-support: rgba(18, 20, 23, 0.2);
   --text-support: rgba(18, 20, 23, 0.5);
+  --text-control: rgba(18, 20, 23, 1);
+  --text-searchTitle: rgba(138, 138, 137, 1);
 }
 
 body {

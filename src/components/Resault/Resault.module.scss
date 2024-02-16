@@ -5,6 +5,8 @@
 
 .carsContainer {
 
+    margin-bottom: 80px;
+
     .carsList {
 
         @include fl;
@@ -23,4 +25,24 @@
             
         }
     }
+}
+
+.loadbutton {
+
+    @include fl;
+    justify-content: center;
+
+    width: 100%;
+
+    font-family: Manrope;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+
+    margin-bottom: 100px;
+
+    border: none;
+    background-color: transparent;
+
+    color: var(--button-color);
 }

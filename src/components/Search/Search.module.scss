@@ -1,5 +1,143 @@
 .container {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-    width: 70%;
-    margin: 0 auto 60px auto;
+    width: 859px;
+    margin: 60px auto 60px auto;
+
+    .select {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+
+        label {
+
+            font-family: Manrope;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 500;
+
+            color: var(--text-searchTitle);
+
+            margin: 0 0 10px 0;
+        }
+    }
+
+    .brand {
+
+        width: 224px;
+
+        svg {
+            fill: rgba(18, 20, 23, 1);
+        }
+    }
+
+    .price {
+        width: 125px;
+
+        svg {
+            fill: rgba(18, 20, 23, 1);
+        }
+    }
+
+    .mileagesBlock {
+
+        p {
+            font-family: Manrope;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 500;
+
+            color: var(--text-searchTitle);
+
+            margin: 0 0 10px 0;
+        }
+
+        .form {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+
+            p {
+                margin: 0;
+            }
+
+            .mileage {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                width: 320px;
+                height: 36px;
+
+                border-radius: 14px;
+                background-color: rgba(247, 247, 251, 1);
+
+                label {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    gap: 5px;
+
+                    padding: 0 10px;
+
+                    width: 50%;
+                    height: 100%;
+
+                    
+
+                    p {
+   
+                        font-family: Manrope;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: var(--text-control),
+                    }
+
+                    input {
+                        
+                        width: 70%;
+                        font-size: 18px;
+                        font-weight: 500;
+ 
+                        border: none;
+                        background-color: rgba(247, 247, 251, 1);
+                    }
+    
+                    input:focus {
+                        outline: none;
+                    }
+                }
+
+                .right {
+                    
+                    border-right: 2px solid var(--border-support);
+                }
+            } 
+            
+            button {
+                width: 136px;
+                height: 36px;
+                background-color: var(--button-color);
+
+                font-family: Manrope;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 600;
+
+                color: rgba(247, 247, 251, 1);
+
+                border: none;
+                border-radius: 14px;
+            }
+        }
+    }
 }

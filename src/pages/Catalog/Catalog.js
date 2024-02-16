@@ -1,5 +1,6 @@
-import Search from '../../components/Search/Search'
-import Resault from '../../components/Resault/Resault'
+
+import Search from '../../components/Search/Search';
+import Resault from '../../components/Resault/Resault';
 
 const Catalog = () => {
   

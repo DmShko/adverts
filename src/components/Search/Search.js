@@ -1,12 +1,16 @@
 import { useState } from 'react'; 
+import { useDispatch } from 'react-redux'; 
 
 import Select from 'react-select';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+import { change } from 'store/advertsSlice'; 
+
 import se from './Search.module.scss';
 
 const car = [
+  "All",
   "Buick",
   "Volvo",
   "HUMMER",
@@ -32,9 +36,50 @@ const car = [
 ];
 
 const Search = () => {
+  // selectors state
+  const [selectedCarOption, setSelectedCarOption] = useState(null);
+  const [selectedPriceOption, setSelectedPriceOption] = useState(null);
+
+  const [firstControlClick, setFirstControlClick] = useState(false);
+  const [secondControlClick, setSecondControlClick] = useState(false);
+
+  const dispatch = useDispatch();
   
+  // react-select options
   const optionsBrand = [...car.map(element => ({ value: element, label: element }))];
  
+  // react-select styles
+  const customStyles = (name) => { 
+    
+    return {
+      control: () => ({
+        display: 'flex',
+        justifyContent: 'space-between',
+        border: 'none',
+        borderRadius: '14px',
+        backgroundColor: 'rgba(247, 247, 251, 1)',
+        outline: 'none',
+      }),
+      indicatorSeparator: (defaultStyles) => ({
+        ...defaultStyles,
+        color: 'red',
+        background: 'none',
+      }),
+      placeholder: (defaultStyles) => ({
+        ...defaultStyles,
+        color: 'var(--text-control)',
+        fontFamily: 'Manrope',
+        fontSize: '18px',
+        fontWeight: '500',
+      }),
+      indicatorsContainer: (defaultStyles) => 
+      ({
+        ...defaultStyles,
+        transform: name === 'brand' ? firstControlClick ?  'rotate(180deg)' : 'rotate(0)'
+          : secondControlClick ?  'rotate(180deg)' : 'rotate(0)',
+      }),
+    }
+  };
 
   const prices = () => { 
     
@@ -48,9 +93,6 @@ const Search = () => {
 
   };
 
-  const [selectedCarOption, setSelectedCarOption] = useState(null);
-  const [selectedPriceOption, setSelectedPriceOption] = useState(null);
-
   // create 'formik' hook and configurate him
   const formik = useFormik({
     initialValues: {
@@ -60,70 +102,101 @@ const Search = () => {
 
     //yup stored own validate functions (for email, password...etc)
     validationSchema: Yup.object({
-      from: Yup.number().notRequired().min(1000).max(1000000),
-      to: Yup.number().notRequired().min(1000).max(1000000),
+      from: Yup.number().notRequired(),
+      to: Yup.number().notRequired(),
     }),
 
     //! 'values' contains ended values all Form inputs.
     //! They will can get: 'values.<field name>' or change values on {email, password}
     onSubmit: ({ from, to }) => {
-      console.log(from, to);
+
+      if(selectedPriceOption !== null) dispatch(change({operation: 'changeSearch', data: {brand: selectedCarOption.value, price: selectedPriceOption.value, from: from, to: to,},}));
+
     },
   });
 
+  const clickSelect = (name) => {
+    name === 'brand' ? setFirstControlClick(value => !value) : setSecondControlClick(value => !value);
+  };
+
   return (
     <div className={se.container}>
-      <label htmlFor='brand'>Car brand</label>
-      <Select
-        id='brand'
-        value={selectedCarOption}
-        onChange={setSelectedCarOption}
-        options={optionsBrand}
-        placeholder='Enter the text' 
-      />
 
-      <label htmlFor='price'>Price/ 1 hour</label>
-      <Select
-        id='price'
-        value={selectedPriceOption}
-        onChange={setSelectedPriceOption}
-        options={prices()}
-        placeholder='To $'
-      />
+      <div className={se.select}>
+        <label htmlFor='brand'>Car brand</label>
+        <Select
+        
+          className={se.brand}
+          classNamePrefix="react-select"
+          id='brand'
+          value={selectedCarOption}
+          onChange={setSelectedCarOption}
+          options={optionsBrand}
+          styles={customStyles('brand')}
+          placeholder='Enter the text' 
 
-      <form onSubmit={formik.handleSubmit}>
+          onMenuOpen={() => clickSelect('brand')}
+          onMenuClose={() => clickSelect('brand')}
+        
+        />
+      </div>
 
+      <div className={se.select}>
+        <label htmlFor='price'>Price/ 1 hour</label>
+        <Select
+          className={se.price}
+          id='price'
+          value={selectedPriceOption}
+          onChange={setSelectedPriceOption}
+          options={prices()}
+          styles={customStyles('price')}
+          placeholder='To $'
+
+          onMenuOpen={() => clickSelect('price')}
+          onMenuClose={() => clickSelect('price')}
+        />
+      </div>
+
+      <div className={se.mileagesBlock}>
         <p>Car mileage/ km</p>
+        <form className={se.form} onSubmit={formik.handleSubmit}>
 
-        <input
-          name="from"
-          type="text"
-          placeholder="From"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        >
-          
-        </input>
-  
-        <input
-          name="to"
-          type="text"
-          placeholder="To"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        >
-          
-        </input>
+          <div className={se.mileage}>
 
-        <button
-          type="submit"
-        >
-          Search
-        </button>
+            <label className={`${se.leftLabel} ${se.right}`}> 
+              <p>From</p>
+              <input
+                name="from"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.from}
+              > 
+              </input>
+            </label>
+      
+            <label>
+              <p>To</p>
+              <input
+                name="to"
+                type="text"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.to}
+              >
+              </input>
+            </label>
+            
+          </div>
 
-      </form>
+          <button
+              type="submit"
+            >
+              Search
+          </button>
+
+        </form>
+      </div>
     </div>
   )
 }

@@ -8,6 +8,8 @@ import { nanoid } from 'nanoid';
 
 import CarsItem from './CarItem/CarItem'
 
+import { ReactComponent as CarImg} from '../../images/car-transport-svgrepo-com.svg';
+
 import re from './Resault.module.scss';
 
 const Resault = () => {
@@ -26,7 +28,7 @@ const Resault = () => {
 
   const loadAdverts = () => {
  
-    advertsSelector.cars.length !== 0 
+    advertsSelector.cars.length !== 1 
     ? setCurrentPage(value => value += 1)
     : setCurrentPage(1);
    
@@ -35,18 +37,27 @@ const Resault = () => {
   return (
 
     <>
-      <div className={re.carsContainer}>
+      {advertsSelector.isLoading ? <CarImg style={{width: '70px'}}/> :<div className={re.carsContainer}>
         <ul className={re.carsList}>
           {advertsSelector.cars.map(element => {
-            return <li className={re.carItem} key={nanoid()} id={element.id}>
+            return advertsSelector.search.brand !== 'All' ? (element.make === advertsSelector.search.brand 
+            && Number(element.rentalPrice.slice(1)) <= Number(advertsSelector.search.price.slice(1))) 
+            || (Number(advertsSelector.search.from) <= Number(element.mileage) <= Number(advertsSelector.search.to))
+            ? <li className={re.carItem} key={nanoid()} id={element.id}>
 
               <CarsItem data={element}/>  
 
-            </li>})}
-        </ul>
-      </div>
+            </li> : '' 
+            : <li className={re.carItem} key={nanoid()} id={element.id}>
 
-      <button type='button' onClick={loadAdverts}>Load more</button>
+              <CarsItem data={element}/>  
+
+            </li>
+            })}
+        </ul>
+      </div>}
+
+      <button className={re.loadbutton} type='button' onClick={loadAdverts}>Load more</button>
     </>
 
   )
