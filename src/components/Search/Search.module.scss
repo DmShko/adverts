@@ -109,7 +109,7 @@
                         font-weight: 500;
  
                         border: none;
-                        background-color: rgba(247, 247, 251, 1);
+                        background-color: var(--back-item-color);
                     }
     
                     input:focus {
@@ -137,6 +137,8 @@
 
                 border: none;
                 border-radius: 14px;
+
+                cursor: pointer;
             }
         }
     }

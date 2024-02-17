@@ -4,11 +4,28 @@
 }
 
 .itemContainer {
-    img {
-        width: 100%;
+
+    .itemHeart {
+
+        margin-left: auto;
+
+        cursor: pointer;
+    }
+
+    .itemImage {
+
+        @include fl;
+        flex-direction: column;
+        justify-content: flex-start;
+
         height: 274px;
-    
-        object-fit: cover;
+
+        padding: 10px;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // object-fit: cover;
         border-radius: 14px;
     }
     
@@ -58,11 +75,17 @@
     
         background-color: var(--button-color);
 
+        cursor: pointer;
+
         p {
             font-size: 14px;
             line-height: 20px;
             font-weight: 600; 
             color: var(--text-white);
         }
+    }
+
+    button:focus {
+        outline: none;
     }
 }

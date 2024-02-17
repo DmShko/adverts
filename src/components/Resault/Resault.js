@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux'; 
 
-import { getAdverts } from '../../API/advertsAPI'
+import { getAdverts } from '../../API/advertsAPI';
 
 import { nanoid } from 'nanoid';
 
-import CarsItem from './CarItem/CarItem'
+import CarsItem from './CarItem/CarItem';
 
-import { ReactComponent as CarImg} from '../../images/car-transport-svgrepo-com.svg';
+import Loader from '../Loader/Loader';
 
 import re from './Resault.module.scss';
 
@@ -37,7 +37,9 @@ const Resault = () => {
   return (
 
     <>
-      {advertsSelector.isLoading ? <CarImg style={{width: '70px'}}/> :<div className={re.carsContainer}>
+    
+      {advertsSelector.isLoading ? <Loader /> 
+        :<div className={re.carsContainer}>
         <ul className={re.carsList}>
           {advertsSelector.cars.map(element => {
             return advertsSelector.search.brand !== 'All' ? (element.make === advertsSelector.search.brand 
@@ -57,7 +59,7 @@ const Resault = () => {
         </ul>
       </div>}
 
-      <button className={re.loadbutton} type='button' onClick={loadAdverts}>Load more</button>
+      {advertsSelector.isLoading ? '' : <button className={re.loadbutton} type='button' onClick={loadAdverts}>Load more</button>}
     </>
 
   )

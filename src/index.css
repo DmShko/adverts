@@ -7,6 +7,10 @@
   --text-support: rgba(18, 20, 23, 0.5);
   --text-control: rgba(18, 20, 23, 1);
   --text-searchTitle: rgba(138, 138, 137, 1);
+  --back-item-color: rgba(247, 247, 251, 1);
+  --shadow-color: rgba(52, 112, 255, 0.5);
+  --link-color: rgb(35, 119, 24);
+  --link-hover-color: rgb(255, 165, 0);
 }
 
 body {

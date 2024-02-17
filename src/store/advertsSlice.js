@@ -11,7 +11,8 @@ const advertsInitialState = {
     price: '',
     from: '',
     to: '',
-  }
+  },
+  favorites: [],
 
 };
 
@@ -30,6 +31,12 @@ const advertsSlice = createSlice({
             to: action.payload.data.to,
           };
           break;
+        case 'addFavorites':
+            state.favorites = [...state.favorites, action.payload.data];
+            break;
+        case 'deleteFavorites':
+            state.favorites = state.favorites.filter(element => element !== action.payload.data);
+            break;
         default:
           break;
       }
