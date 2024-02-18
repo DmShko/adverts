@@ -1,14 +1,23 @@
 {
   "files": {
-    "main.css": "/adverts/static/css/main.1a7afb73.css",
-    "main.js": "/adverts/static/js/main.206e55df.js",
-    "static/media/car-transport-svgrepo-com.svg": "/adverts/static/media/car-transport-svgrepo-com.8149fff25415014234cecc6223d0993f.svg",
+    "main.css": "/adverts/static/css/main.b04c9fde.css",
+    "main.js": "/adverts/static/js/main.35204727.js",
+    "static/media/gta_6_muscle_car_video_game-wallpaper-1366x768.jpg": "/adverts/static/media/gta_6_muscle_car_video_game-wallpaper-1366x768.9d7841fdd795352dcbd2.jpg",
+    "static/media/house-key-key-svgrepo-com.svg": "/adverts/static/media/house-key-key-svgrepo-com.619a1ebadc2c9948a7ce3e2fa34d1b82.svg",
+    "static/media/car-service-svgrepo-com.svg": "/adverts/static/media/car-service-svgrepo-com.85e00386d2fcfdf73098.svg",
+    "static/media/car-transport-svgrepo-com.svg": "/adverts/static/media/car-transport-svgrepo-com.5a32fa1fa0f4cc0734cb.svg",
+    "static/media/tap-hands-and-gestures-svgrepo-com.svg": "/adverts/static/media/tap-hands-and-gestures-svgrepo-com.3522a3c07336815265a7591485e0dc64.svg",
+    "static/media/box-empty-svgrepo-com.svg": "/adverts/static/media/box-empty-svgrepo-com.211ee9e8c9133ae8d5686f502c3df359.svg",
     "index.html": "/adverts/index.html",
-    "main.1a7afb73.css.map": "/adverts/static/css/main.1a7afb73.css.map",
-    "main.206e55df.js.map": "/adverts/static/js/main.206e55df.js.map"
+    "static/media/line-horizontal-3-svgrepo-com.svg": "/adverts/static/media/line-horizontal-3-svgrepo-com.0ee58f36ee53b0b9d5d128748f3684d0.svg",
+    "static/media/heart-svgrepo-com-favorite.svg": "/adverts/static/media/heart-svgrepo-com-favorite.68d4c77ecb7a25b5c683cbb77e9aec95.svg",
+    "static/media/heart-svgrepo-com.svg": "/adverts/static/media/heart-svgrepo-com.b1ce60dae1888c2550f47aa47f72cf8c.svg",
+    "static/media/close-md-svgrepo-com.svg": "/adverts/static/media/close-md-svgrepo-com.306d92a0cd24751626c0c38cae385550.svg",
+    "main.b04c9fde.css.map": "/adverts/static/css/main.b04c9fde.css.map",
+    "main.35204727.js.map": "/adverts/static/js/main.35204727.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a7afb73.css",
-    "static/js/main.206e55df.js"
+    "static/css/main.b04c9fde.css",
+    "static/js/main.35204727.js"
   ]
 }
