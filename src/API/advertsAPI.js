@@ -10,7 +10,7 @@ export const getAdverts = createAsyncThunk(
         url.searchParams.append('limit', 12);
    
         return await axios.get(url).then(responce => {
-            console.log(responce);
+           
             return responce.data;
         }).catch(error =>  {
             return rejectWithValue(error.message);

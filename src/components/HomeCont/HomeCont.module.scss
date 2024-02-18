@@ -1,0 +1,79 @@
+.container {
+
+    display: flex;
+    flex-direction: column;
+ 
+
+    width: 100%;
+    height: 100vh;
+
+    padding-top: 70px;
+    margin: 0 auto;
+
+    background-image: url('../../images/home/gta_6_muscle_car_video_game-wallpaper-1366x768.jpg');
+    background-position: center;
+    background-size: cover;
+
+    .start {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+       
+
+        backdrop-filter: blur(7px);
+
+       p {
+        margin: 0;
+        
+        font-size: 44px;
+        font-weight: 600;
+        color: var(--back-item-color);
+
+        transition: color 200ms;
+
+        cursor: pointer;
+       }
+
+       p:hover {
+
+        color: var(--link-hover-color);
+       }
+    }
+
+    .select {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 0 30px;
+
+        backdrop-filter: blur(2px);
+ 
+        p {
+            font-size: 24px;
+            color: var(--back-item-color);
+        }
+
+    }
+
+    .keys {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        padding: 0 30px;
+
+        backdrop-filter: blur(2px);
+
+        p {
+            font-size: 24px;
+            color: var(--back-item-color);
+        }
+        
+    }
+    
+}

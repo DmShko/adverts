@@ -1,5 +1,6 @@
 import { useState } from 'react'; 
-import { useDispatch } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
+import { useSearchParams } from 'react-router-dom';
 
 import Select from 'react-select';
 import { useFormik } from 'formik';
@@ -36,12 +37,17 @@ const car = [
 ];
 
 const Search = () => {
+
+  const advertsSelector = useSelector(state => state.adverts);
+
   // selectors state
   const [selectedCarOption, setSelectedCarOption] = useState(null);
   const [selectedPriceOption, setSelectedPriceOption] = useState(null);
 
   const [firstControlClick, setFirstControlClick] = useState(false);
   const [secondControlClick, setSecondControlClick] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams({});
 
   const dispatch = useDispatch();
   
@@ -107,10 +113,14 @@ const Search = () => {
     }),
 
     //! 'values' contains ended values all Form inputs.
-    //! They will can get: 'values.<field name>' or change values on {email, password}
+    //! They will can get: 'values.<field name>' or change values on {from, to}
     onSubmit: ({ from, to }) => {
+     
+      if(selectedCarOption !== null) {
 
-      if(selectedPriceOption !== null) dispatch(change({operation: 'changeSearch', data: {brand: selectedCarOption.value, price: selectedPriceOption.value, from: from, to: to,},}));
+        setSearchParams({...searchParams, brand: selectedCarOption.value,});
+        dispatch(change({operation: 'changeSearch', data: {...advertsSelector.search, brand: selectedCarOption.value, from: from, to: to,},}));
+      }
 
     },
   });

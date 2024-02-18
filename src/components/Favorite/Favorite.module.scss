@@ -28,6 +28,16 @@
     }
 }
 
+.empty {
+
+    width: 100%;
+    height: 100vh;
+
+    @include fl;
+    justify-content: center;
+   
+}
+
 .loadbutton {
 
     @include fl;

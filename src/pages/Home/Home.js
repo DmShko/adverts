@@ -1,8 +1,9 @@
+import HomeCont from '../../components/HomeCont/HomeCont';
 
 const Home = () => {
   
   return (
-    <div></div>
+    <HomeCont />
   )
 }
 

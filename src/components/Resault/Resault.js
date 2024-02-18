@@ -28,7 +28,7 @@ const Resault = () => {
 
   const loadAdverts = () => {
  
-    advertsSelector.cars.length !== 1 
+    advertsSelector.cars.length !== 8 
     ? setCurrentPage(value => value += 1)
     : setCurrentPage(1);
    
@@ -42,9 +42,8 @@ const Resault = () => {
         :<div className={re.carsContainer}>
         <ul className={re.carsList}>
           {advertsSelector.cars.map(element => {
-            return advertsSelector.search.brand !== 'All' ? (element.make === advertsSelector.search.brand 
-            && Number(element.rentalPrice.slice(1)) <= Number(advertsSelector.search.price.slice(1))) 
-            || (Number(advertsSelector.search.from) <= Number(element.mileage) <= Number(advertsSelector.search.to))
+            return advertsSelector.search.brand !== 'All' ? element.make === advertsSelector.search.brand 
+            
             ? <li className={re.carItem} key={nanoid()} id={element.id}>
 
               <CarsItem data={element}/>  

@@ -6,12 +6,7 @@ const advertsInitialState = {
  
   isLoading: false,
   cars: [],
-  search: {
-    brand: '',
-    price: '',
-    from: '',
-    to: '',
-  },
+  search: {},
   favorites: [],
 
 };
@@ -24,12 +19,7 @@ const advertsSlice = createSlice({
     change(state, action) {
       switch(action.payload.operation) {
         case 'changeSearch':
-          state.search = {...state.search, 
-            brand: action.payload.data.brand, 
-            price: `$${action.payload.data.price}`,
-            from: action.payload.data.from,
-            to: action.payload.data.to,
-          };
+          state.search = action.payload.data;
           break;
         case 'addFavorites':
             state.favorites = [...state.favorites, action.payload.data];
