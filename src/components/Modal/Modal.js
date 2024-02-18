@@ -51,7 +51,7 @@ const Modal = ({ openClose, data }) => {
             </div>
 
             <div className={mo.imageContainer}>
-                <img src={data.img} alt='car photo'></img>
+                <img src={data.img} alt=''></img>
             </div>
 
             <div className={mo.infoBlock}>
