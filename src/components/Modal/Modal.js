@@ -97,10 +97,9 @@ const Modal = ({ openClose, data }) => {
 
                 </div>
 
-                <button><p>Rental car</p></button>
+                <div className={mo.rental}><a href="tel:+232-32-23" >Rental car</a></div>
 
-            </div>
-                
+            </div>     
         </div>
     </div>
   )
